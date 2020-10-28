@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        html, body {height:100%;width:100%;padding:0;margin:0;}
+        body {
+        background:#ccc;display:flex;justify-content:center; align-items:center
+        }
+        .image-input {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            padding: 20px 10px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            z-index: 9;
+ 
+            display: flex;
+    justify-content: center;
+    align-items: center;
+        }
+        .image-input .image-input-container .image-local {
+padding: 0 10px;
+    font-size: 16px;
+    line-height: 38px;
+    text-align: center;
+    color: #fff;
+    background-color: #0073eb;
+    border: none;
+        display: inline-block;
+    vertical-align: middle;
+    height: 38px;
+}
+
+        .circle-border {
+    width: 150px;
+    height: 150px;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; 
+    background: linear-gradient(0deg, rgb(204, 204, 204) 33%, rgb(0, 115, 235) 100%);
+    animation: spin .8s linear 0s infinite;
+}
+
+.circle-core {
+  width: 100%;
+  height: 100%;
+  background-color: #37474f;
+  border-radius: 50%;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(359deg);
+  }
+}
+    </style>
+</head>
+<body>
+    <div style="width:50%;height:60%;background:#00ff90;position:relative;display:flex;justify-content:center;align-items:center;">
+        <div class="circle-border">
+            <div class="circle-core"></div>
+        </div>
+        <video style="width:100%;height:100%;background:#0073eb;width: 400px;    height: 400px;    background: #0073eb;    border-radius: 50%; position:absolute"></video>
+
+
+        <div class="image-input">
+            <div class="image-input-container">
+                <label class="image-local">准备好了，开始识别</label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET66666</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+
+</div>
+<input type="text" id="name1" name="name1" />
+<div id="log"></div>
+<input type="button" id="test" value="测试" />
+<script>
+
+
+    function fullScreen1() {
+        var element = document.documentElement;
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        }
+    }
+    document.querySelector('#test')
+        .addEventListener('click', () => {
+            fullScreen1();
+            setTimeout(() => {
+                let width = document.documentElement.clientWidth;
+                let height = document.documentElement.clientHeight;
+                var isHandle = true;
+                window.onresize = function () {
+                    if (isHandle == false) return;
+                    let reWidth = document.documentElement.clientWidth;
+                    let reHeight = document.documentElement.clientHeight;
+                    console.log(width + ':' + height + ':' + reWidth + ':' + reHeight);
+                    if (width != reWidth || height != reHeight) {
+                        console.log('退出')
+                        document.querySelector('#log').innerHTML += '退出<br />';
+                    }
+                    else {
+                        console.log('全屏');
+                        document.querySelector('#log').innerHTML += '全屏<br />';
+                    }
+                }
+            }, 600);
+
+            window.onblur = function () {
+                isHandle = false;
+                console.log('切屏');
+                document.querySelector('#log').innerHTML += '切屏<br />';
+            }
+            document.oncontextmenu = function () {
+
+                return false;
+            } 
+        });
+    window.onkeyup = function () {  return true; }
+    window.onkeydown = function () { return true; }
+</script>
