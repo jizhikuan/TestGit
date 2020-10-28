@@ -21,6 +21,7 @@ namespace t6
             */
               var db11= AutofacRegister.Container.Resolve<Test1>();
             var data = db.Table_1.Where(i => i.id == 1).FirstOrDefault();
+            /**/
             var is1 = db11 == db; //object.Equals(db1, db);
           
         }
